@@ -1,0 +1,58 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "Project",
+  "main": "src/app.js",
+  "private": true,
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha --require babel-core/register --recursive test",
+    "eslint": "node_modules/eslint/bin/eslint.js ./src/**/*.js; node_modules/eslint/bin/eslint.js ./test/**/*.js",
+    "eslint-fix": "node_modules/eslint/bin/eslint.js --fix ./src/**/*.js; node_modules/eslint/bin/eslint.js --fix ./test/**/*.js",
+    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --config config/webpack.config.js",
+    "electron": "node scripts/electron.js",
+    "electron-dist-linux": "node scripts/electron-dist-linux.js",
+    "electron-dist-mac": "node scripts/electron-dist-mac.js",
+    "electron-dist-win": "node scripts/electron-dist-win.js",
+    "dist": "rm -rf dist/; BUILD_DEV=false node_modules/webpack/bin/webpack.js -p --config config/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/[account]/[project].git"
+  },
+  "author": "",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/[account]/[project]/issues"
+  },
+  "homepage": "https://github.com/[account]/[project]#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "phaser-ce": "^2.8.0",
+    "webfontloader": "^1.6.28"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "canvas": "^1.6.5",
+    "chai": "^4.0.2",
+    "css-loader": "^0.28.4",
+    "electron": "^1.6.11",
+    "electron-packager": "^8.7.1",
+    "eslint": "^3.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "expose-loader": "^0.7.3",
+    "file-loader": "^0.11.2",
+    "jsdom": "^9.12.0",
+    "mocha": "^3.4.2",
+    "node-gyp": "^3.6.2",
+    "style-loader": "^0.18.2",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
