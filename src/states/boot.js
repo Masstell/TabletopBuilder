@@ -16,17 +16,7 @@ export default class LoadingState extends Phaser.State {
         // this.areFontsLoaded = false; // use this if you are loading web fonts
         this.areFontsLoaded = true;
 
-        var loadingText = 'Loading...';
-
-        var text = this.add.text(0, 0, loadingText, {
-            font: 'Helvetica, Arial, Sans-Serif',
-            fill: '#ffffff',
-            fontSize: 48,
-            boundsAlignH: 'center',
-            boundsAlignV: 'middle'
-        });
-
-        text.setTextBounds(0, 0, this.world.width, this.world.height);
+        this.showLoading();
     }
 
     preload () {
@@ -36,7 +26,7 @@ export default class LoadingState extends Phaser.State {
         // load web fonts
         /* WebFont.load({
             active: function () {
-                this.webfontloaded();
+                this.webfontsLoaded();
             }.bind(this),
             custom: {
                 families: ['font name'],
@@ -55,13 +45,27 @@ export default class LoadingState extends Phaser.State {
         // this.game.physics.startSystem(Phaser.Physics.ARCADE);
     }
 
-    webfontloaded () {
-        this.areFontsLoaded = true;
-    }
-
     update () {
         if (this.areFontsLoaded) {
             this.state.start('MainMenu');
         }
+    }
+
+    showLoading () {
+        var loadingText = 'Loading...';
+
+        var text = this.add.text(0, 0, loadingText, {
+            font: 'Helvetica, Arial, Sans-Serif',
+            fill: '#ffffff',
+            fontSize: 48,
+            boundsAlignH: 'center',
+            boundsAlignV: 'middle'
+        });
+
+        text.setTextBounds(0, 0, this.world.width, this.world.height);
+    }
+
+    webfontsLoaded () {
+        this.areFontsLoaded = true;
     }
 };
