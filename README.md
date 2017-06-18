@@ -14,10 +14,10 @@ Supports:
 - npm start
 
 ## Testing with Watcher
-- npm test
+- npm run test-watch
 
 ## Testing without Watcher
-- npm run test-nowatch
+- npm test
 
 ## lint
 - npm run eslint
