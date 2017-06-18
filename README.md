@@ -5,7 +5,7 @@ Supports:
 - webpack, webpack dev server, es6 via babel
 - travis ci integration
 - unit testing using mocha chai
-- pc distrubtion using electron
+- pc distribution using electron
 
 ## Setup
 - npm install
