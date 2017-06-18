@@ -13,8 +13,11 @@ Supports:
 ## Running webpack dev server
 - npm start
 
-## Testing
+## Testing with Watcher
 - npm test
+
+## Testing without Watcher
+- npm run test-nowatch
 
 ## lint
 - npm run eslint

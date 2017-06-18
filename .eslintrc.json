@@ -16,7 +16,11 @@
     "globals": {
         "phaser": true,
         "Phaser": true,
-        "_": true
+        "_": true,
+        "assert": true,
+        "game": true,
+        "describe": true,
+        "it": true
     },
     "settings": {
         "import/core-modules": [ "phaser", "pixi", "p2" ]
