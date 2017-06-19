@@ -24,5 +24,6 @@ global.window.CanvasRenderingContext2D = new Canvas(GAME_WIDTH, GAME_HEIGHT).get
 global.PIXI = require('../node_modules/phaser-ce/build/custom/pixi').PIXI;
 global.p2 = require('../node_modules/phaser-ce/build/custom/p2');
 global.Phaser = require('../node_modules/phaser-ce/build/phaser').Phaser;
+global._ = require('lodash');
 
 global.game = new Phaser.Game(GAME_WIDTH, GAME_HEIGHT, Phaser.HEADLESS);
