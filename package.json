@@ -9,7 +9,7 @@
     "test-watch": "NODE_ENV=test node_modules/mocha/bin/mocha -w --compilers js:babel-register --require ignore-styles --require config/test.config.js \"test/src/**/*.js\"",
     "eslint": "node_modules/eslint/bin/eslint.js ./src/**/*.js; node_modules/eslint/bin/eslint.js ./test/**/*.js",
     "eslint-fix": "node_modules/eslint/bin/eslint.js --fix ./src/**/*.js; node_modules/eslint/bin/eslint.js --fix ./test/**/*.js",
-    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --config config/webpack.config.js",
+    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js -d --config config/webpack.config.js",
     "electron": "node scripts/electron.js",
     "electron-dist-linux": "node scripts/electron-dist-linux.js",
     "electron-dist-mac": "node scripts/electron-dist-mac.js",
