@@ -1,6 +1,10 @@
 # new-phaser-project
 My ongoing effort to create a nice starting point for Phaser.js games...
 
+IMPORTANT! This report contains several dot files. Do not clone this repo and just do a simple cp over to a new repo or you will likey miss those files.
+
+Instead download this project as zip file and unpack in your new repo or just fork this project. :)
+
 Supports:
 - webpack, webpack dev server, es6 via babel
 - travis ci integration
