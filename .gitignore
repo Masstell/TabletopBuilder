@@ -51,3 +51,6 @@ assets/json/.DS_Store
 *-darwin-*
 *-win32-*
 *-linux-*
+
+# don't use package-lock for the chassis
+package-lock.json
