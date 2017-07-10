@@ -9,12 +9,13 @@
     "test-watch": "NODE_ENV=test node_modules/mocha/bin/mocha -w --compilers js:babel-register --require ignore-styles --require config/test.config.js \"test/src/**/*.js\"",
     "eslint": "node_modules/eslint/bin/eslint.js ./src/**/*.js; node_modules/eslint/bin/eslint.js ./test/**/*.js",
     "eslint-fix": "node_modules/eslint/bin/eslint.js --fix ./src/**/*.js; node_modules/eslint/bin/eslint.js --fix ./test/**/*.js",
-    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js -d --config config/webpack.config.js",
+    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js -d --config config/webpack.config.devserver.js",
     "electron": "node scripts/electron.js",
     "electron-dist-linux": "node scripts/electron-dist-linux.js",
     "electron-dist-mac": "node scripts/electron-dist-mac.js",
     "electron-dist-win": "node scripts/electron-dist-win.js",
-    "dist": "rm -rf dist/; BUILD_DEV=false node_modules/webpack/bin/webpack.js -p --config config/webpack.config.js"
+    "dist": "rm -rf dist/; BUILD_DEV=false node_modules/webpack/bin/webpack.js -p --config config/webpack.config.base.js",
+    "audiosprite": "node node_modules/audiosprite/cli.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "audiosprite": "^0.6.0",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
@@ -40,6 +42,7 @@
     "canvas": "^1.6.5",
     "chai": "^4.0.2",
     "css-loader": "^0.28.4",
+    "dotenv": "^4.0.0",
     "electron": "^1.6.11",
     "electron-packager": "^8.7.1",
     "eslint": "^3.0.0",
@@ -50,12 +53,16 @@
     "eslint-plugin-standard": "^3.0.1",
     "expose-loader": "^0.7.3",
     "file-loader": "^0.11.2",
+    "hot-reload-server": "^0.1.1",
     "ignore-styles": "^5.0.1",
     "jsdom": "^9.12.0",
     "mocha": "^3.4.2",
     "node-gyp": "^3.6.2",
     "style-loader": "^0.18.2",
     "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-middleware": "^1.11.0",
+    "webpack-dev-server": "^2.4.5",
+    "webpack-hot-middleware": "^2.18.0",
+    "webpack-target-electron-renderer": "^0.4.0"
   }
 }

@@ -1,37 +1,24 @@
-const path              = require('path');
-const webpack           = require('webpack');
+const webpack = require('webpack');
+const path = require('path');
 
 // Phaser webpack config
 const phaserModule = path.join(__dirname, '../node_modules/phaser-ce/');
-const phaser       = path.join(phaserModule, 'build/custom/phaser-split.js');
-const pixi         = path.join(phaserModule, 'build/custom/pixi.js');
-const p2           = path.join(phaserModule, 'build/custom/p2.js');
+const phaser = path.join(phaserModule, 'build/custom/phaser-split.js');
+const pixi = path.join(phaserModule, 'build/custom/pixi.js');
+const p2 = path.join(phaserModule, 'build/custom/p2.js');
 
-const definePlugin = new webpack.DefinePlugin({
-  __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true'))
-});
-
-module.exports = {
+const config = {
     context: path.resolve(__dirname, '../src'),
     entry: {
-        app: ['../src/app.js'],
-        vendor: ['lodash', 'pixi', 'p2', 'phaser', 'webfontloader'],
+        app: ['./app.js'],
+        vendor: ['lodash', 'pixi', 'p2', 'phaser', 'webfontloader']
     },
     output: {
         filename: '[name].bundle.js',
         pathinfo: true,
         path: path.resolve(__dirname, '../dist/assets/'),
-        publicPath: '/assets/',
+        publicPath: 'assets/'
     },
-    devtool: 'cheap-source-map',
-    devServer: {
-        contentBase: path.resolve(__dirname, '../src'),
-        watchContentBase: true,
-    },
-    plugins: [
-        definePlugin,
-        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor'/* chunkName= */, filename: 'vendor.bundle.js'/* filename= */}),
-    ],
     module: {
         rules: [
             {
@@ -39,29 +26,29 @@ module.exports = {
                 exclude: [/node_modules/],
                 use: [{
                     loader: 'babel-loader',
-                    options: { presets: ['es2015'] },
-                }],
+                    options: { presets: ['es2015'] }
+                }]
             },
             {
                 test: /pixi\.js/,
                 use: [{
                     loader: 'expose-loader',
                     options: 'PIXI'
-                }],
+                }]
             },
             {
                 test: /phaser-split\.js$/,
                 use: [{
                     loader: 'expose-loader',
                     options: 'Phaser'
-                }],
+                }]
             },
             {
                 test: /p2\.js/,
                 use: [{
                     loader: 'expose-loader',
                     options: 'p2'
-                }],
+                }]
             },
             {
                 test: /src\/.*\.(html)$/,
@@ -70,20 +57,24 @@ module.exports = {
                     options: {
                         name: '[name].[ext]',
                         outputPath: '../',
+                        publicPath: '/'
                     }
-                }],
+                }]
             },
             {
-                test: /assets\/.*\.(css|CSS|jpe?g|JPE?G|gif|GIF|png|PNG|svg|SVG|woff|WOFF|ttf|TTF|wav|WAV|mp3|MP3|html|HTML)$/,
+                test: /assets\/.*\.(css|CSS|jpe?g|JPE?G|gif|GIF|png|PNG|svg|SVG|woff|WOFF|ttf|TTF|wav|WAV|mp3|MP3|html|HTML|ico)$/,
                 use: [{
                     loader: "file-loader",
                     options: {
-                        name: '[name].[ext]',
+                        name: '[name].[ext]'
                     }
-                }],
-            },
-        ],
+                }]
+            }
+        ]
     },
+    plugins: [
+        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor'/* chunkName= */, filename: 'vendor.bundle.js'/* filename= */})
+    ],
     node: {
         fs: 'empty',
         net: 'empty',
@@ -99,3 +90,5 @@ module.exports = {
         }
     }
 };
+
+module.exports = config;

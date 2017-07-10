@@ -2,7 +2,10 @@
 import BootState from './states/boot';
 import MainMenuState from './states/main-menu';
 
-require('./index.html');
+require('dotenv');
+if (!process.env.ELECTRON) {
+    require('./index.html');
+}
 
 let game = new Phaser.Game(800, 600);
 
@@ -15,6 +18,8 @@ Phaser.Device.whenReady(function () {
 
     // setup global namespace under game for our global data
     game.global = {};
+
+    game.global.asset_path = process.env.ELECTRON ? '/' : '/assets/';
 
     // states
     game.state.add('Boot', BootState);

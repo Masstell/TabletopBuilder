@@ -6,6 +6,7 @@
 // require('../../assets/fonts/[font].ttf');
 
 // require in other assets to be included but not added to cache at this time
+require('../../assets/icons/favicon.ico');
 // require('../../assets/sounds/sound.wav');
 // require('../../assets/json/tilemap.json');
 // require('../../assets/images/tileset.png');

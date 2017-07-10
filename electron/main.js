@@ -1,43 +1,54 @@
-const {app, BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
+'use strict'
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let win;
+// Import modules
+const electron = require('electron');
+
+const app = electron.app;
+const BrowserWindow = electron.BrowserWindow;
+
+// Load environmental variables
+require('dotenv').load();
+
+process.env.ELECTRON = true;
+
+if (process.env.NODE_ENV === "development") {
+    const hotReloadServer = require('hot-reload-server').default;
+    const webpackConfig = require('../config/webpack.config.electron');
+
+    hotReloadServer(webpackConfig, {
+        publicPath: 'assets/'
+    }).start();
+}
+
+// Create a variable to hold the window
+let mainWindow = null;
 
 function createWindow () {
-    // Create the browser window.
-    win = new BrowserWindow({
-        width: 835,
-        height: 660,
+    // creates a new browser window
+    mainWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
         center: true,
-        title: "[project]",
-        backgroundColor: "#000000",
+        title: process.env.PROJECT,
         webPreferences: {
-            devTools: true
+            devTools: process.env.NODE_ENV === "development" ? true : false
         }
     });
 
-    // and load the index.html of the app.
-    win.loadURL(url.format({
-        pathname: path.join(__dirname, 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }));
-
     // Open the DevTools.
-    //win.webContents.openDevTools();
+    if (process.env.NODE_ENV === "development") {
+        mainWindow.webContents.openDevTools();
+    }
+
+    // load the file
+    mainWindow.loadURL('file://' + __dirname + '/index.html');
 
     // no menu
-    win.setMenuBarVisibility(false);
+    mainWindow.setMenuBarVisibility(false);
 
-    // Emitted when the window is closed.
-    win.on('closed', () => {
-        // Dereference the window object, usually you would store windows
-        // in an array if your app supports multi windows, this is the time
-        // when you should delete the corresponding element.
-        win = null;
+    // Register window events
+    mainWindow.on('closed', function() {
+        mainWindow = null
     });
 }
 
@@ -58,10 +69,7 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (win === null) {
+    if (mainWindow === null) {
         createWindow();
     }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
