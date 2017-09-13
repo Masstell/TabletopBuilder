@@ -24,6 +24,9 @@ Supports:
 ## Running webpack dev server
 - npm start
 
+## Viewing to app
+- In a browser, browse to localhost:8080. Note: if you already have a server on that port it will just increment, thanks to webpack dev server, so it might be 8081 instead.
+
 ## Testing with Watcher
 - npm run test-watch
 
