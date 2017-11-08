@@ -10,12 +10,8 @@ Instead try one of the following:
 
 Supports:
 - webpack, webpack dev server, es6 via babel
-- travis ci integration
-- unit testing using mocha chai
-- pc distribution using electron
 
 ## Prereqs
-- Cairo 2D graphics library (for Canvs module). If you have homebrew you can *brew install cairo*. Or see https://cairographics.org/ for more details on manual installation.
 - Node.js - https://nodejs.org/en/
 
 ## Setup
@@ -24,24 +20,11 @@ Supports:
 ## Running webpack dev server
 - npm start
 
+## Optional Makefile (instead of using npm to install and start the app)
+- make start
+
 ## Viewing to app
 - In a browser, browse to localhost:8080. Note: if you already have a server on that port it will just increment, thanks to webpack dev server, so it might be 8081 instead.
 
-## Testing with Watcher
-- npm run test-watch
-
-## Testing without Watcher
-- npm test
-
-## lint
-- npm run eslint
-- npm run eslint-fix
-
 ## creating a packaged distribution
 - npm run dist
-
-## electron
-- npm run electron
-- npm run electron-dist-win
-- npm run electron-dist-mac
-- npm run electron-dist-linux
