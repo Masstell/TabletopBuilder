@@ -21,10 +21,10 @@ Supports:
 ## Viewing to app
 - In a browser, browse to localhost:8080. Note: if you already have a server on that port it will just increment, thanks to webpack dev server, so it might be 8081 instead.
 
-## Optionally you can install all dependancies via npm
+## Optionally, you can install all dependancies via npm
 - ```npm install```
 
-## You also an start the webpack dev server using npm
+## Optionally, you can start the webpack dev server using npm
 - ```npm start```
 
 ## Creating a packaged distribution
