@@ -21,7 +21,7 @@
   "homepage": "https://github.com/[account]/[project]#readme",
   "dependencies": {
     "lodash": "^4.17.4",
-    "phaser-ce": "^2.8.0",
+    "phaser-ce": "^2.9.4",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
