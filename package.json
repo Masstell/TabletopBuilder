@@ -35,6 +35,7 @@
     "expose-loader": "^0.7.3",
     "file-loader": "^0.11.2",
     "hot-reload-server": "^0.1.1",
+    "ignore-loader": "^0.1.2",
     "ignore-styles": "^5.0.1",
     "style-loader": "^0.18.2",
     "webpack": "^2.6.1",
