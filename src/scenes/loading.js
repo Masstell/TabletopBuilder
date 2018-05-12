@@ -10,6 +10,7 @@
 // require('../../assets/sounds/sound.wav');
 // require('../../assets/json/tilemap.json');
 // require('../../assets/images/tileset.png');
+require('../../assets/images/play.png');
 
 export default class LoadingScene extends Phaser.Scene {
     constructor (config, key = 'Loading') {
@@ -38,11 +39,11 @@ export default class LoadingScene extends Phaser.Scene {
     }
 
     webfontsloaded () {
-        this.are_fonts_loaded = true;
+        this.areFontsLoaded = true;
     }
 
     update () {
-        if (this.are_fonts_loaded) {
+        if (this.areFontsLoaded) {
             this.input.stopPropagation();
             this.scene.start('MainMenu');
         }
