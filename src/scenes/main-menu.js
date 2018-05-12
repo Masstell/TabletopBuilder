@@ -19,11 +19,8 @@ export default class MainMenuScene extends Phaser.Scene {
 
         playButton.setInteractive();
         playButton.on('pointerdown', () => {
-            console.log('I clicked the play button');
             this.input.stopPropagation();
-            this.scene.start('MainMenu');
+            this.scene.start('PlayGame');
         });
-
-        console.log(this);
     }
 };
