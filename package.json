@@ -5,8 +5,8 @@
   "main": "src/app.js",
   "private": true,
   "scripts": {
-    "start": "node_modules/webpack-dev-server/bin/webpack-dev-server.js -d --config config/webpack.config.devserver.js",
-    "dist": "rm -rf dist/; BUILD_DEV=false node_modules/webpack/bin/webpack.js -p --config config/webpack.config.base.js",
+    "start": "scripts/start.sh",
+    "dist": "scripts/dist.sh",
     "audiosprite": "node node_modules/audiosprite/cli.js"
   },
   "repository": {
