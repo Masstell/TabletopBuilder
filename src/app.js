@@ -1,29 +1,25 @@
-// import states
-import BootState from './states/boot';
-import MainMenuState from './states/main-menu';
+import 'phaser';
+import 'lodash';
+import 'webfontloader';
 
-require('dotenv');
-if (!process.env.ELECTRON) {
-    require('./index.html');
+require('./index.html'); // so we get it in the dist
+
+// import scenes
+import LoadingScene from './scenes/loading';
+import MainMenuScene from './scenes/main-menu';
+
+var gameConfig = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 600,
+    backgroundColor: '#000000',
+    physics: {
+        default: 'arcade',
+        arcade: {
+            //debug: true, // enable to see physics bodies outlined
+        }
+    },
+    scene: [LoadingScene, MainMenuScene]
 }
 
-let game = new Phaser.Game(800, 600);
-
-Phaser.Device.whenReady(function () {
-    // plugins
-    game.__plugins = game.__plugins || {};
-
-    // add plugins here
-    // ...
-
-    // setup global namespace under game for our global data
-    game.global = {};
-
-    game.global.asset_path = process.env.ELECTRON ? '/' : '/assets/';
-
-    // states
-    game.state.add('Boot', BootState);
-    game.state.add('MainMenu', MainMenuState);
-
-    game.state.start('Boot');
-});
+let game = new Phaser.Game(gameConfig);;

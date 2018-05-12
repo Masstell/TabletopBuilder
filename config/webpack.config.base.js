@@ -1,63 +1,48 @@
 const webpack = require('webpack');
 const path = require('path');
 
-// Phaser webpack config
-const phaserModule = path.join(__dirname, '../node_modules/phaser-ce/');
-const phaser = path.join(phaserModule, 'build/custom/phaser-split.js');
-const pixi = path.join(phaserModule, 'build/custom/pixi.js');
-const p2 = path.join(phaserModule, 'build/custom/p2.js');
+// Try the environment variable, otherwise use root
+const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 const config = {
     context: path.resolve(__dirname, '../src'),
+
     entry: {
         app: ['./app.js'],
-        vendor: ['lodash', 'pixi', 'p2', 'phaser', 'webfontloader']
     },
+
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].js',
         pathinfo: true,
-        path: path.resolve(__dirname, '../dist/assets/'),
-        publicPath: 'assets/'
+        path: path.resolve(__dirname, '../dist/'),
+        publicPath: ASSET_PATH
     },
+
     module: {
         rules: [
             {
                 test: /\.js$/,
-                exclude: [/node_modules/, /src/],
+                exclude: [/node_modules/],
                 use: [{
                     loader: 'babel-loader',
                     options: { presets: ['es2015'] }
                 }]
             },
             {
-                test: /pixi\.js/,
-                use: [{
-                    loader: 'expose-loader',
-                    options: 'PIXI'
-                }]
+                test: /\.json$/,
+                exclude: [/node_modules/, /assets/],
+                use: 'json-loader'
             },
             {
-                test: /phaser-split\.js$/,
-                use: [{
-                    loader: 'expose-loader',
-                    options: 'Phaser'
-                }]
-            },
-            {
-                test: /p2\.js/,
-                use: [{
-                    loader: 'expose-loader',
-                    options: 'p2'
-                }]
+                test: [/\.vert$/, /\.frag$/],
+                use: 'raw-loader'
             },
             {
                 test: /src\/.*\.(html)$/,
                 use: [{
                     loader: "file-loader",
                     options: {
-                        name: '[name].[ext]',
-                        outputPath: '../',
-                        publicPath: '/'
+                        name: '[name].[ext]'
                     }
                 }]
             },
@@ -72,22 +57,15 @@ const config = {
             }
         ]
     },
+
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({ name: 'vendor'/* chunkName= */, filename: 'vendor.bundle.js'/* filename= */})
+        new webpack.DefinePlugin({ 'CANVAS_RENDERER': JSON.stringify(true), 'WEBGL_RENDERER': JSON.stringify(true) })
     ],
+
     node: {
         fs: 'empty',
         net: 'empty',
         tls: 'empty'
-    },
-    resolve: {
-        alias: {
-            'phaser': phaser,
-            'Phaser': phaser,
-            'pixi': pixi,
-            'PIXI': pixi,
-            'p2': p2
-        }
     }
 };
 
