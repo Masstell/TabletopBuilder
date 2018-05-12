@@ -17,7 +17,8 @@ config.devServer = {
     disableHostCheck: true,
     port: PORT,
     contentBase: path.resolve(__dirname, '../src'),
-    watchContentBase: true
+    watchContentBase: true,
+    open: true
 };
 
 module.exports = config;
