@@ -11,6 +11,7 @@ stop:
 	killall npm
 
 dist:
+	rm -rf dist
 	npm run dist </dev/null
 
 node_modules: package.json $(NPM)
@@ -39,3 +40,5 @@ INSTALL_OSX:
 	@which brew || exit 1
 	@echo Installing npm ...
 	@which npm || brew install node
+
+.PHONY: all start stop dist node_modules clean
