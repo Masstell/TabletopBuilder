@@ -40,7 +40,8 @@ module.exports = (options) => {
                     }]
                 },
                 {
-                    test: /assets\/.*\.(css|CSS|jpe?g|JPE?G|gif|GIF|png|PNG|svg|SVG|woff|WOFF|ttf|TTF|wav|WAV|mp3|MP3|html|HTML|ico|ICO|txt|TXT)$/,
+                    type: 'javascript/auto',
+                    test: /assets\/.*\.(json|JSON|css|CSS|jpe?g|JPE?G|gif|GIF|png|PNG|svg|SVG|woff|WOFF|ttf|TTF|wav|WAV|mp3|MP3|html|HTML|ico|ICO|txt|TXT)$/,
                     exclude: [/node_modules/],
                     use: [{
                         loader: "file-loader",
