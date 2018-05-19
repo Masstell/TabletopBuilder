@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
-rm -rf dist/; BUILD_DEV=false ./node_modules/webpack/bin/webpack.js -p --config config/webpack.config.base.js
+DIST="$(pwd)/dist/"
 
-cd dist
+rm -rf "$DIST"
 
-zip -r dist-latest.zip *
+node node_modules/webpack-cli/bin/webpack.js --config config/webpack.config.production.js
+
+if [ -d "$DIST" ]; then
+    cd "$DIST"
+
+    zip -r dist-latest.zip *
+else
+    echo 'No dist dir!'
+fi
