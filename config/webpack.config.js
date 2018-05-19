@@ -26,11 +26,6 @@ module.exports = (options) => {
                     }
                 },
                 {
-                    test: /\.json$/,
-                    exclude: [/node_modules/, /assets/],
-                    use: 'json-loader'
-                },
-                {
                     test: [/\.vert$/, /\.frag$/],
                     exclude: [/node_modules/, /assets/],
                     use: 'raw-loader'
