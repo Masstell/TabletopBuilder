@@ -8,7 +8,7 @@ start: node_modules
 	npm start </dev/null
 
 stop:
-	killall npm
+	killall npm webpack-serve
 
 dist:
 	npm run dist </dev/null
@@ -43,4 +43,4 @@ INSTALL_OSX:
 	@echo Installing npm ...
 	@which npm || brew install node
 
-.PHONY: all start stop dist audiosprite node_modules clean
+.PHONY: all start stop dist audiosprite clean
