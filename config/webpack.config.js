@@ -1,14 +1,11 @@
-const webpack = require('webpack');
 const path  = require('path');
 const srcApp = path.resolve(__dirname, '..', 'src', 'app.js');
 const distDir = path.resolve(__dirname, '..', 'dist');
-const assetPath = process.env.ASSET_PATH || '/';
 
 module.exports = (options) => {
     const config = Object.assign({
-
         entry: {
-            app: srcApp
+            app: srcApp,
         },
 
         output: {
@@ -52,10 +49,6 @@ module.exports = (options) => {
                 }
             ]
         },
-
-        plugins: [
-            new webpack.DefinePlugin({ 'CANVAS_RENDERER': JSON.stringify(true), 'WEBGL_RENDERER': JSON.stringify(true) })
-        ],
 
     }, options);
 
