@@ -7,6 +7,7 @@
   "scripts": {
     "start": "scripts/start.sh",
     "start:client": "scripts/start-client.sh",
+    "start:server": "scripts/start-server.sh",
     "dist": "scripts/dist.sh",
     "audiosprite": "scripts/audiosprite.sh"
   },
@@ -21,7 +22,10 @@
   },
   "homepage": "https://github.com/[account]/[project]#readme",
   "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "express": "^4.16.4",
     "lodash": "^4.17.11",
+    "nodemon": "^1.19.1",
     "phaser": "^3.17.0",
     "webfontloader": "^1.6.28"
   },
