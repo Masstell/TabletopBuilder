@@ -1,34 +1,31 @@
-import Player from "../abstracts/Player.js";
+import Player from "../abstracts/player.js";
 // player imports Deck
 // player imports Hand
 // player imports wallet, but I don't need that here
 
-export default class Dealer extends Player {
-    // id comes from Player
-    this.deck;
-    this.hand;
-
+class Dealer extends Player {
     constructor ( id ) {
+      this.id = id;
       this.deck = {};
       this.hand = {};
     }
 
-    this.setDeck = deck => this.deck = deck;
-    this.getDeck = () => return this.deck;
+    setDeck(deck) { this.deck = deck };
+    getDeck(){ return this.deck; }
 
-    this.setHand = hand => this.hand = hand;
-    this.getHand = () => return this.hand;
+    setHand(hand){ this.hand = hand };
+    getHand(){ return this.hand };
 
-    this.shuffleDeck = () => {
+    shuffleDeck () {
 
     }
 
-    this.dealCardToPlayerHand = (playerId, private) => {
+    dealCardToPlayerHand(playerId, hidden){
       const card = this.deck.pop();
-      deck.transferCardToPlayerHand( playerId, private );
+      deck.transferCardToPlayerHand( playerId, hidden );
     }
 
-    this.play = (playerList){
+    play(playerList){
       // AI logic
       let handValue = 0;
       let numPlayers = playerList.length - 1;
@@ -85,3 +82,5 @@ export default class Dealer extends Player {
       }
     }
 }
+
+export default Dealer;
