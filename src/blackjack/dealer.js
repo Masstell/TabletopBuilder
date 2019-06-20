@@ -1,31 +1,17 @@
 import Player from "../abstracts/player.js";
-// player imports Deck
 // player imports Hand
 // player imports wallet, but I don't need that here
 
 class Dealer extends Player {
     constructor ( id ) {
       this.id = id;
-      this.deck = {};
       this.hand = {};
     }
-
-    setDeck(deck) { this.deck = deck };
-    getDeck(){ return this.deck; }
 
     setHand(hand){ this.hand = hand };
     getHand(){ return this.hand };
 
-    shuffleDeck () {
-
-    }
-
-    dealCardToPlayerHand(playerId, hidden){
-      const card = this.deck.pop();
-      deck.transferCardToPlayerHand( playerId, hidden );
-    }
-
-    play(playerList){
+    play( playerList ){
       // AI logic
       let handValue = 0;
       let numPlayers = playerList.length - 1;
@@ -77,7 +63,7 @@ class Dealer extends Player {
         }
 
         if( "HIT" === move ){
-          this.deck.hit();
+          this.hand = Deck.hit();
         }
       }
     }
