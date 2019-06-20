@@ -45,6 +45,8 @@ export default class ResourceCollection {
 
     get amount () { return this._resources.length }
 
+    get gameObject () { throw 'undefined in abstract class: ResourceCollection'; }
+
     generateResources (amount = 1, resourceConfig = {}) {
         let ResourceClass = this.resourceClass;
         let _resourceConfig = {

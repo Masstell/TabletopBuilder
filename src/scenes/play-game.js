@@ -57,7 +57,7 @@ export default class PlayGameScene extends Phaser.Scene {
 
         creditResourcesFromBankToWallet(5, bank, wallet);
 
-        console.log(bank, wallet);
+        this.add.existing(wallet.gameObject);
 
         let human = new Human();
         console.log("Human", human);

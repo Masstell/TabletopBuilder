@@ -11,6 +11,14 @@ export default class Bank extends ResourceCollection {
         super(_config);
     }
 
+    get gameObject () { 
+        if ('undefined' === typeof this._gameObject) {
+            this._gameObject = new Phaser.GameObjects.GameObject(this.scene, this.x, this.y);
+        }
+
+        return this._gameObject;
+    }
+
     removeAmountOfResources (amount = 1) {
         return this.generateResources(amount);
     }
