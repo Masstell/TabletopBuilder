@@ -1,3 +1,4 @@
+import io from 'socket.io-client';
 import Bank from "../blackjack/bank";
 import Hand from "../blackjack/hand";
 import Wallet from "../blackjack/wallet";
@@ -21,7 +22,20 @@ export default class PlayGameScene extends Phaser.Scene {
         this.load.image('card_backs', 'face_cards_back.png');
     }
 
-    create() {
+    create () {
+        // TOP: WEBSOCKET CLIENT CONNECTION
+        let wsBase = 'ws://localhost:8000/';
+        if (document.location.port < 1024) {
+            // Privileged port should use itself for WebSocket
+            wsBase = document.location.href;
+        }
+        console.log("USING WEBSOCKET: " + wsBase);
+        this.socket = io(wsBase);
+        this.socket.on('disconnect', () => {
+            console.log('WEBSOCKET SERVER TERMINATED CONNECTION!');
+        });
+        // END: WEBSOCKET CLIENT CONNECTION
+
         let deck = new Deck(this);
         console.log(deck.getCollection());
         let hand = new Hand(this);
