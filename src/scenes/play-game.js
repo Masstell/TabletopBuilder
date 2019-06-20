@@ -66,6 +66,8 @@ export default class PlayGameScene extends Phaser.Scene {
 
         creditResourcesFromBankToWallet(5, bank, wallet);
 
+        creditResourcesFromBankToWallet(5, bank, wallet);
+
         this.add.existing(wallet.gameObject);
 
     }

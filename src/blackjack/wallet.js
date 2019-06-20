@@ -22,8 +22,29 @@ export default class Wallet extends ResourceCollection {
             this._container.add(chip1);
             this._container.add(chip2);
             this._container.add(chip3);
+
+            this._text = new Phaser.GameObjects.Text(this.scene, chip1.width / 2, 0, this.amount, { fontSize: '32px' });
+            this._text.setOrigin(.5,.5);
+
+            this._container.add(this._text);
         }
 
         return this._container;
+    }
+
+    removeAmountOfResources (amount = 1) {
+        super.removeAmountOfResources(amount);
+
+        if (this._text) {
+            this._text.setText(this.amount);
+        }
+    }
+
+    addToResources (resources) {
+        super.addToResources(resources);
+
+        if (this._text) {
+            this._text.setText(this.amount);
+        }
     }
 }
