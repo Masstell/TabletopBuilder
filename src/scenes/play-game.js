@@ -1,10 +1,12 @@
 import Chip from "../blackjack/chip";
 import Bank from "../blackjack/bank";
+import Hand from "../blackjack/hand";
 import Wallet from "../blackjack/wallet";
 import Deck from '../blackjack/deck';
 import Dealer from '../blackjack/dealer';
 import Human from '../blackjack/human';
 import { creditResourcesFromBankToWallet } from '../blackjack/resource_actions';
+import { transferCard } from '../blackjack/card_action';
 
 export default class PlayGameScene extends Phaser.Scene {
     constructor(config, key = "PlayGame") {
@@ -23,6 +25,12 @@ export default class PlayGameScene extends Phaser.Scene {
 
     create() {
         let deck = new Deck(this);
+        console.log(deck.getCollection());
+        let hand = new Hand(this);
+        console.log(hand);
+        transferCard(deck, hand);
+        transferCard(deck, hand);
+        console.log(hand.getCollection());
         console.log(deck.getCollection());
 
         this.add.image(300, 300, "table");

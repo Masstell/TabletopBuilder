@@ -23,7 +23,7 @@ export default class CardCollection {
     }
 
     chooseRandomCard() {
-        let randomNumber = Math.floor(Math.random() * this.cards.length());
+        let randomNumber = Math.floor(Math.random() * this.getCollection().length);
         return this.cards[randomNumber];
     }
 }

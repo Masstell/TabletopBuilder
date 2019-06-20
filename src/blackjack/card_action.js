@@ -3,3 +3,5 @@ function transferCard(cardSource, cardDestination, card) {
     cardDestination.addCard(card);
     cardSource.removeCard(card);
 }
+
+export { transferCard }
