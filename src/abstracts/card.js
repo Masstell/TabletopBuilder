@@ -1,11 +1,11 @@
 export default class Card {
-
-    constructor(name, desc, value) {
+    constructor(scene, img, name, desc, value) {
+        this.scene = scene;
         // has a sprite
-        //this.img = img;
+        this.img = img;
 
         // has a name
-        this.name = desc || 'newCard';
+        this.name = name || 'newCard';
 
         // has a description
         this.desc = desc || 'Description of my Card';

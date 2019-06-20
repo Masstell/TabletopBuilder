@@ -13,6 +13,8 @@
 require("../../assets/images/play.png");
 require("../../assets/images/pokerchip1.png");
 require("../../assets/images/background.png");
+require('../../assets/images/face_cards.png');
+require('../../assets/images/face_cards_back.png');
 
 export default class LoadingScene extends Phaser.Scene {
   constructor(config, key = "Loading") {
