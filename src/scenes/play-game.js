@@ -2,6 +2,7 @@ import Chip from "../blackjack/chip";
 import ResourceCollection from "../abstracts/resource_collection";
 import Bank from "../blackjack/bank";
 import Wallet from "../blackjack/wallet";
+import Deck from '../blackjack/deck';
 
 export default class PlayGameScene extends Phaser.Scene {
   constructor(config, key = "PlayGame") {
@@ -17,6 +18,8 @@ export default class PlayGameScene extends Phaser.Scene {
   }
 
   create() {
+    let deck = new Deck(this);
+    console.log(deck.getCollection());
     this.add.image(300, 300, "table");
     let chip = new Chip({
       imageProps: {

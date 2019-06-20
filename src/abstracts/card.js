@@ -1,8 +1,8 @@
-class Card {
+export default class Card {
 
-    constructor(img, name, desc, value) {
+    constructor(name, desc, value) {
         // has a sprite
-        this.img = img;
+        //this.img = img;
 
         // has a name
         this.name = desc || 'newCard';

@@ -1,7 +1,10 @@
+import Card from '../abstracts/card';
+
 export default class CardCollection {
 
-    constructor(cards) {
-        this.cards = cards;
+    constructor(scene) {
+        this.cards = [];
+        this.scene = scene;
     }
 
     getCollection() {
@@ -9,7 +12,7 @@ export default class CardCollection {
     }
 
     shuffleCollection() {
-        this.cards = lodash_shuffle(this.cards);
+        this.cards = _.shuffle(this.cards);
     }
 
     addCard(card) {
