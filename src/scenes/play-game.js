@@ -4,6 +4,7 @@ import Bank from "../blackjack/bank";
 import Wallet from "../blackjack/wallet";
 import Deck from '../blackjack/deck';
 import Dealer from '../blackjack/dealer';
+import Human from '../blackjack/human';
 
 export default class PlayGameScene extends Phaser.Scene {
     constructor(config, key = "PlayGame") {
@@ -34,8 +35,10 @@ export default class PlayGameScene extends Phaser.Scene {
         this.add.existing(chip.image);
         let bank = new Bank();
         let wallet = new Wallet();
+        let human = new Human();
 
         console.log(bank, wallet);
+        console.log("Human", human);
     }
 
     update() {}
