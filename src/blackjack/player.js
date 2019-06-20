@@ -7,6 +7,9 @@ import Wallet from "./wallet";
 
 Player.hand = new Hand;
 Player.wallet = new Wallet;
+Player.states.push("HIT");
+Player.states.push("STAND");
+Player.states.push("BUST");
 
 Player.setHand = function(h){ this.hand = h; };
 Player.getHand = function(){ return this.hand; };

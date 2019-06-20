@@ -15,7 +15,7 @@ class Dealer extends Player {
       let currentVals = [];
       let victoryThreshhold = .75;
 
-      this.setState( "HIT" );
+      this.setState( "PLAYING" );
 
       // Reveal my cards
       this.hand.map((card) => {
@@ -23,44 +23,45 @@ class Dealer extends Player {
       });
       // TODO: Send a render event to show this.
 
-      while( "HIT" === this.state ){
-        // Determine my current hand value.
-        currentVals = this.hand.getValues(); // an array of hand values 21 or less
+      // Determine my current hand value.
+      currentVals = this.hand.getValues(); // an array of hand values 21 or less
 
-        // TIME TO THINK!
-        // If I bust, then game over.
-        if( 0 === currentVals.length ){
-          this.setState("BUST");
-        }else if( 21 === currentVals[0] ){ // If I have 21, then game over.
-          this.setState("STAND");
-        }else{
-          // If I don't have 21, am I at least beating most of the players?
-          // I'll need to make sure to check all possible hand values.
+      // TIME TO THINK!
+      // If I bust, then game over.
+      if( 0 === currentVals.length ){
+        this.setState("BUST");
+      }else if( 21 === currentVals[0] ){ // If I have 21, then game over.
+        this.setState("STAND");
+      }else if( 17 > currentVals[0] ){ // If I have 21, then game over.
+        this.setState("HIT");
+      }else{
+        // If I don't have 21, am I at least beating most of the players?
+        // I'll need to make sure to check all possible hand values.
 
-          // loop through the possible values of my hand
-          for( i = 0; i < currentVals.length; i++ ){
-            handValue = currentVals[i];
-            numPlayersImBeating = 0;
+        // loop through the possible values of my hand
+        for( i = 0; i < currentVals.length; i++ ){
+          handValue = currentVals[i];
+          numPlayersImBeating = 0;
 
-            // Check my hand against the hand values of the other players
-            playerList.map((player) => {
-              if( 0 === player.getHand().getValues().length ){ // player busted
-                numPlayersImBeating += 1;
-              }else if( player.getHand().getValues()[0] <= handValue ){ // push or win
-                numPlayersImBeating += 1;
-              }
-            });
-
-            // Am I beating enough players to stand?
-            if( numPlayersImBeating / numPlayers >= victoryThreshhold ){
-              this.setState("STAND");
-              break;
+          // Check my hand against the hand values of the other players
+          playerList.map((player) => {
+            if( 0 === player.getHand().getValues().length ){ // player busted
+              numPlayersImBeating += 1;
+            }else if( player.getHand().getValues()[0] <= handValue ){ // push or win
+              numPlayersImBeating += 1;
             }
+          });
+
+          // Am I beating enough players to stand?
+          if( numPlayersImBeating / numPlayers >= victoryThreshhold ){
+            this.setState("STAND");
+            break;
           }
         }
 
-        if( "HIT" === move ){
-          this.hand = Deck.hit();
+        // If I didn't bust and I shouldn't stand, HIT
+        if( this.hasState( "PLAYING" ) ){
+          this.setState("HIT");
         }
       }
     }
