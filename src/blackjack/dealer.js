@@ -5,11 +5,7 @@ import Player from "./player.js";
 class Dealer extends Player {
     constructor ( id ) {
       this.id = id;
-      this.hand = {};
     }
-
-    setHand(hand){ this.hand = hand };
-    getHand(){ return this.hand };
 
     play( playerList ){
       // AI logic
@@ -18,7 +14,8 @@ class Dealer extends Player {
       let numPlayersImBeating = 0;
       let currentVals = [];
       let victoryThreshhold = .75;
-      let move = "HIT"
+
+      this.setState( "HIT" );
 
       // Reveal my cards
       this.hand.map((card) => {
@@ -26,16 +23,16 @@ class Dealer extends Player {
       });
       // TODO: Send a render event to show this.
 
-      while( "HIT" === move ){
+      while( "HIT" === this.state ){
         // Determine my current hand value.
         currentVals = this.hand.getValues(); // an array of hand values 21 or less
 
         // TIME TO THINK!
         // If I bust, then game over.
         if( 0 === currentVals.length ){
-          move = "BUST";
+          this.setState("BUST");
         }else if( 21 === currentVals[0] ){ // If I have 21, then game over.
-          move = "STAND";
+          this.setState("STAND");
         }else{
           // If I don't have 21, am I at least beating most of the players?
           // I'll need to make sure to check all possible hand values.
@@ -56,7 +53,7 @@ class Dealer extends Player {
 
             // Am I beating enough players to stand?
             if( numPlayersImBeating / numPlayers >= victoryThreshhold ){
-              move = "STAND";
+              this.setState("STAND");
               break;
             }
           }

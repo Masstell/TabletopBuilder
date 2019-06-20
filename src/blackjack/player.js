@@ -8,4 +8,10 @@ import Wallet from "./wallet";
 Player.hand = new Hand;
 Player.wallet = new Wallet;
 
+Player.setHand = function(h){ this.hand = h; };
+Player.getHand = function(){ return this.hand; };
+
+Player.setWallet = function(w){ this.wallet = w; };
+Player.getWallet = function(){ return this.wallet; };
+
 export default Player;
