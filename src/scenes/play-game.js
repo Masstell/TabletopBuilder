@@ -1,34 +1,34 @@
-import Chip from '../blackjack/chip';
-import ResourceCollection from '../abstracts/resource_collection';
+import Chip from "../blackjack/chip";
+import ResourceCollection from "../abstracts/resource_collection";
 
 export default class PlayGameScene extends Phaser.Scene {
-    constructor (config, key = 'PlayGame') {
-        super({ key: key });
-    }
+  constructor(config, key = "PlayGame") {
+    super({ key: key });
+  }
 
-    init () {
-        
-    }
+  init() {}
 
-    preload () {
-        // load all the resources required for this scene before using them
-        this.load.image('pokerchip1', 'pokerchip1.png');
-    }
+  preload() {
+    // load all the resources required for this scene before using them
+    this.load.image("pokerchip1", "pokerchip1.png");
+    this.load.image("table", "background.png");
+  }
 
-    create () {
-        let chip = new Chip({ 
-            imageProps: {
-                scene: this, 
-                x: 50, 
-                y: 50
-            }
-        });
-        this.add.existing(chip.image);
-        let resourceCollection = new ResourceCollection();
+  create() {
+    this.add.image(300, 300, "table");
 
-        console.log(resourceCollection);
-    }
+    let chip = new Chip({
+      imageProps: {
+        scene: this,
+        x: 50,
+        y: 50
+      }
+    });
+    this.add.existing(chip.image);
+    let resourceCollection = new ResourceCollection();
 
-    update () {
-    }
-};
+    console.log(resourceCollection);
+  }
+
+  update() {}
+}

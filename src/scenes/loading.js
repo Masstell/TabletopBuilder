@@ -10,25 +10,25 @@
 // require('../../assets/sounds/sound.wav');
 // require('../../assets/json/tilemap.json');
 // require('../../assets/images/tileset.png');
-require('../../assets/images/play.png');
-require('../../assets/images/pokerchip1.png');
+require("../../assets/images/play.png");
+require("../../assets/images/pokerchip1.png");
+require("../../assets/images/background.png");
 
 export default class LoadingScene extends Phaser.Scene {
-    constructor (config, key = 'Loading') {
-        super({ key: key });
-    }
+  constructor(config, key = "Loading") {
+    super({ key: key });
+  }
 
-    init () {
-        // font loading
-        this.areFontsLoaded = true;
-    }
+  init() {
+    // font loading
+    this.areFontsLoaded = true;
+  }
 
-    preload () {
-        // load json configuration files
-        // this.cache.json.add('assetsConfig', assetsConfig);
-
-        // load web fonts
-        /* WebFont.load({
+  preload() {
+    // load json configuration files
+    // this.cache.json.add('assetsConfig', assetsConfig);
+    // load web fonts
+    /* WebFont.load({
             active: function () {
                 this.webfontsLoaded();
             }.bind(this),
@@ -37,16 +37,16 @@ export default class LoadingScene extends Phaser.Scene {
                 urls: ['fonts.css']
             }
         }); */
-    }
+  }
 
-    webfontsloaded () {
-        this.areFontsLoaded = true;
-    }
+  webfontsloaded() {
+    this.areFontsLoaded = true;
+  }
 
-    update () {
-        if (this.areFontsLoaded) {
-            this.input.stopPropagation();
-            this.scene.start('MainMenu');
-        }
+  update() {
+    if (this.areFontsLoaded) {
+      this.input.stopPropagation();
+      this.scene.start("MainMenu");
     }
-};
+  }
+}
