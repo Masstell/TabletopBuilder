@@ -3,6 +3,7 @@ import ResourceCollection from "../abstracts/resource_collection";
 import Bank from "../blackjack/bank";
 import Wallet from "../blackjack/wallet";
 import Deck from '../blackjack/deck';
+import Dealer from '../blackjack/dealer';
 
 export default class PlayGameScene extends Phaser.Scene {
   constructor(config, key = "PlayGame") {
