@@ -1,2 +1,2 @@
-class Hand extends CardCollection {
+export default class Hand extends CardCollection {
 }

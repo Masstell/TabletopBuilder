@@ -1,7 +1,7 @@
-class CardCollection {
+export default class CardCollection {
 
-    constructor {
-        this.cards = [];
+    constructor(cards) {
+        this.cards = cards;
     }
 
     getCollection() {
@@ -9,13 +9,18 @@ class CardCollection {
     }
 
     shuffleCollection() {
+        this.cards = lodash_shuffle(this.cards);
     }
 
     addCard(card) {
         this.cards.push(card);
     }
 
-    removeCard(cardIndex) {
-        this.cards.splice(cardIndex, 1);
+    removeCard(card) {
+    }
+
+    chooseRandomCard() {
+        let randomNumber = Math.floor(Math.random() * this.cards.length());
+        return this.cards[randomNumber];
     }
 }
