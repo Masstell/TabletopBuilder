@@ -27,6 +27,7 @@
     "lodash": "^4.17.11",
     "nodemon": "^1.19.1",
     "phaser": "^3.17.0",
+    "socket.io": "^2.2.0",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
