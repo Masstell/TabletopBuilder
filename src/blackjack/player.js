@@ -5,7 +5,7 @@ import Wallet from "./wallet";
 // player imports Hand
 // player imports wallet, but I don't need that here
 
-Player.hand = {};
-Player.wallet = {};
+Player.hand = new Hand;
+Player.wallet = new Wallet;
 
 export default Player;

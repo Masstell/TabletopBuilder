@@ -1,4 +1,4 @@
-import Player from "../abstracts/player.js";
+import Player from "./player.js";
 // player imports Hand
 // player imports wallet, but I don't need that here
 
