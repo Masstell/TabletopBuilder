@@ -11,7 +11,9 @@ export default class Resource {
 
         this._config = config;
 
+        if (!scene) throw 'scene is not defined in resource!';
         this._scene = scene;
+
         this._x = x;
         this._y = y;
 
