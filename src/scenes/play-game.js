@@ -1,4 +1,5 @@
 import Chip from '../blackjack/chip';
+import ResourceCollection from '../abstracts/resource_collection';
 
 export default class PlayGameScene extends Phaser.Scene {
     constructor (config, key = 'PlayGame') {
@@ -23,6 +24,9 @@ export default class PlayGameScene extends Phaser.Scene {
             }
         });
         this.add.existing(chip.image);
+        let resourceCollection = new ResourceCollection();
+
+        console.log(resourceCollection);
     }
 
     update () {
