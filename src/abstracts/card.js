@@ -13,4 +13,8 @@ class Card {
         // has a value
         this.value = value || 1;
     }
+
+    get id () { return this._id; }
+
+    set id (id) { this._id = id || Math.floor(Math.random() * (Number.MAX_SAFE_INTEGER - 1)) + 1; }
 }
