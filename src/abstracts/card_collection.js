@@ -20,6 +20,11 @@ export default class CardCollection {
     }
 
     removeCard(card) {
+        for (let i = 0; i < this.cards.length; i++) {
+            if (this.cards[i].name === card.name) {
+                this.cards.splice(i, 1);
+            }
+        }
     }
 
     chooseRandomCard() {
