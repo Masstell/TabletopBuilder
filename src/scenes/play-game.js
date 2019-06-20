@@ -3,7 +3,6 @@ import Bank from "../blackjack/bank";
 import Hand from "../blackjack/hand";
 import Wallet from "../blackjack/wallet";
 import Deck from '../blackjack/deck';
-import Dealer from '../blackjack/dealer';
 import Human from '../blackjack/human';
 import { creditResourcesFromBankToWallet } from '../blackjack/resource_actions';
 import { transferCard } from '../blackjack/card_action';
