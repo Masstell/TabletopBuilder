@@ -1,6 +1,5 @@
 import Chip from "../blackjack/chip";
 import ResourceCollection from "../abstracts/resource_collection";
-import Chip from '../blackjack/chip';
 import Bank from '../blackjack/bank';
 import Wallet from '../blackjack/wallet';
 
