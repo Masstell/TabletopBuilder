@@ -1,5 +1,7 @@
-export default class Resource {
-    constructor (id) {
+export default class Resource extends Phaser.GameObjects.Image {
+    constructor (scene, x, y, texture, frame, id) {
+        super(scene, x, y, texture, frame);
+
         this.id = id;
     }
 
