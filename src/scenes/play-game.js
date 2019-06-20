@@ -3,7 +3,7 @@ import Bank from "../blackjack/bank";
 import Hand from "../blackjack/hand";
 import Deck from '../blackjack/deck';
 import Wallet from '../blackjack/wallet';
-import Dealer from '../blackjack/dealer';
+// import Dealer from '../blackjack/dealer'; TODO: fix me so I'm not breaking the world
 import Human from '../blackjack/human';
 import { creditResourcesFromBankToWallet } from '../blackjack/resource_actions';
 import { transferCard } from '../blackjack/card_action';
@@ -19,8 +19,9 @@ export default class PlayGameScene extends Phaser.Scene {
         // load all the resources required for this scene before using them
         this.load.image('pokerchip1', 'pokerchip1.png');
         this.load.image("table", "background.png");
-        this.load.spritesheet('cards', 'face_cards.png', );
-        this.load.spritesheet('card_backs', 'face_cards_back.png');
+        // TODO: fix me so I'm not breaking the world
+        //this.load.spritesheet('cards', 'face_cards.png', );
+        //this.load.spritesheet('card_backs', 'face_cards_back.png');
     }
 
     create () {
