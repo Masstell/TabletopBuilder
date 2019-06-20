@@ -1,5 +1,6 @@
 import Chip from '../blackjack/chip';
-import ResourceCollection from '../abstracts/resource_collection';
+import Bank from '../blackjack/bank';
+import Wallet from '../blackjack/wallet';
 
 export default class PlayGameScene extends Phaser.Scene {
     constructor (config, key = 'PlayGame') {
@@ -24,9 +25,10 @@ export default class PlayGameScene extends Phaser.Scene {
             }
         });
         this.add.existing(chip.image);
-        let resourceCollection = new ResourceCollection();
+        let bank = new Bank();
+        let wallet = new Wallet();
 
-        console.log(resourceCollection);
+        console.log(bank, wallet);
     }
 
     update () {
