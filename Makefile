@@ -8,7 +8,7 @@ start: node_modules
 	npm start </dev/null
 
 stop:
-	killall npm webpack-serve
+	killall npm node webpack-serve
 
 dist:
 	npm run dist </dev/null
