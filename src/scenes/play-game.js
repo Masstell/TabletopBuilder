@@ -1,4 +1,3 @@
-import Chip from "../blackjack/chip";
 import Bank from "../blackjack/bank";
 import Hand from "../blackjack/hand";
 import Wallet from "../blackjack/wallet";
@@ -34,15 +33,6 @@ export default class PlayGameScene extends Phaser.Scene {
 
         this.add.image(300, 300, "table");
 
-        let chip = new Chip({
-            gameObjectProps: {
-                scene: this,
-            x: 50,
-            y: 50
-            }
-        });
-        this.add.existing(chip.gameObject);
-
         let bank = new Bank({
             gameObjectProps: {
                 scene: this
@@ -50,7 +40,9 @@ export default class PlayGameScene extends Phaser.Scene {
         });
         let wallet = new Wallet({
             gameObjectProps: {
-                scene: this
+                scene: this,
+                x: 100,
+                y: 100
             }
         });
 

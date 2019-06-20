@@ -19,9 +19,9 @@ export default class Wallet extends ResourceCollection {
             let chip2 = new Phaser.GameObjects.Image(this.scene, chip1.width, 0, 'pokerchip1');
             let chip3 = new Phaser.GameObjects.Image(this.scene, chip1.width / 2, 0, 'pokerchip1');
 
-            this._container.add.existing(chip1);
-            this._container.add.existing(chip2);
-            this._container.add.existing(chip3);
+            this._container.add(chip1);
+            this._container.add(chip2);
+            this._container.add(chip3);
         }
 
         return this._container;
