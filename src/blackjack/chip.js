@@ -16,8 +16,6 @@ export default class Chip extends Resource {
             this._image = new Phaser.GameObjects.Image(this.scene, this.x, this.y, this.texture);
         }
 
-        console.log(this.texture, this._image);
-
         return this._image;
     }
 }
