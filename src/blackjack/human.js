@@ -1,8 +1,7 @@
 import Player from '../abstracts/player';
 
 export default class Human extends Player {
-    constructor() {
-        let name = '';
+    constructor(name) {
         super(name);
         this.hand = {};
         this.chips = {};

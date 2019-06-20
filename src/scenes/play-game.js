@@ -1,8 +1,9 @@
 import io from 'socket.io-client';
 import Bank from "../blackjack/bank";
 import Hand from "../blackjack/hand";
-import Wallet from "../blackjack/wallet";
 import Deck from '../blackjack/deck';
+import Wallet from '../blackjack/wallet';
+import Dealer from '../blackjack/dealer';
 import Human from '../blackjack/human';
 import { creditResourcesFromBankToWallet } from '../blackjack/resource_actions';
 import { transferCard } from '../blackjack/card_action';
@@ -18,8 +19,8 @@ export default class PlayGameScene extends Phaser.Scene {
         // load all the resources required for this scene before using them
         this.load.image('pokerchip1', 'pokerchip1.png');
         this.load.image("table", "background.png");
-        this.load.image('cards', 'face_cards.png');
-        this.load.image('card_backs', 'face_cards_back.png');
+        this.load.spritesheet('cards', 'face_cards.png', );
+        this.load.spritesheet('card_backs', 'face_cards_back.png');
     }
 
     create () {
@@ -60,12 +61,13 @@ export default class PlayGameScene extends Phaser.Scene {
             }
         });
 
+        let human = new Human('Matt');
+        console.log("Human", human);
+
         creditResourcesFromBankToWallet(5, bank, wallet);
 
         this.add.existing(wallet.gameObject);
 
-        let human = new Human();
-        console.log("Human", human);
     }
 
     update() {}
