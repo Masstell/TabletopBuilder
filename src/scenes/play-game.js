@@ -28,21 +28,21 @@ export default class PlayGameScene extends Phaser.Scene {
         this.add.image(300, 300, "table");
 
         let chip = new Chip({
-            imageProps: {
+            gameObjectProps: {
                 scene: this,
             x: 50,
             y: 50
             }
         });
-        this.add.existing(chip.image);
+        this.add.existing(chip.gameObject);
 
         let bank = new Bank({
-            imageProps: {
+            gameObjectProps: {
                 scene: this
             }
         });
         let wallet = new Wallet({
-            imageProps: {
+            gameObjectProps: {
                 scene: this
             }
         });

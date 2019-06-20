@@ -3,7 +3,7 @@ import Resource from '../abstracts/resource';
 export default class Chip extends Resource {
     get texture () {
         let {
-            imageProps: {
+            gameObjectProps: {
                 texture
             }
         } = this.config;
@@ -11,7 +11,7 @@ export default class Chip extends Resource {
         return texture || 'pokerchip1';
     }
 
-    get image () { 
+    get gameObject () { 
         if ('undefined' === typeof this._image) {
             this._image = new Phaser.GameObjects.Image(this.scene, this.x, this.y, this.texture);
         }

@@ -4,7 +4,7 @@ export default class ResourceCollection {
     constructor (config = {}) {
         let {
             resourceClass = Resource,
-            imageProps: {
+            gameObjectProps: {
                 scene,
                 x,
                 y 
@@ -48,7 +48,7 @@ export default class ResourceCollection {
     generateResources (amount = 1, resourceConfig = {}) {
         let ResourceClass = this.resourceClass;
         let _resourceConfig = {
-            imageProps: {
+            gameObjectProps: {
                 scene: this.scene,
                 x: this.x,
                 y: this.y

@@ -1,7 +1,7 @@
 export default class Resource {
     constructor (config = {}) {
         let {
-            imageProps: {
+            gameObjectProps: {
                 scene, 
                 x, 
                 y 
@@ -33,5 +33,5 @@ export default class Resource {
 
     get y () { return this._y; }
 
-    get image () { throw 'undefined in abstract class: Resource'; }
+    get gameObject () { throw 'undefined in abstract class: Resource'; }
 }
