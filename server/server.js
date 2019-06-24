@@ -1,6 +1,7 @@
 import express from 'express';
 import http from 'http';
 import io from 'socket.io';
+import Game from './game';
 
 class Server {
     constructor () {
@@ -9,6 +10,8 @@ class Server {
         this.httpServer = http.Server(this.expressApp);
 
         this.webSocketServer = io.listen(this.httpServer);
+
+        this.game = new Game(this.webSocketServer);
     }
 
     initExpressApp () {
